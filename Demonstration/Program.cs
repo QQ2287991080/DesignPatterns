@@ -1,5 +1,6 @@
 ﻿using AbstractFactoryPattern.Abstract;
 using AbstractFactoryPattern.Factory;
+using BuilderPattern;
 using FactoryPattern;
 using SimpleFactoryPattern;
 using System;
@@ -32,12 +33,44 @@ namespace Demonstration
             {
                 //抽象工厂模式：提供一个创建一系列相关或相互依赖对象的接口，而无需指定他们具体的类
 
-                LogicFactory logicFactory = new LogicFactory();
-                ISkinFactory factory = logicFactory.CheckFacotry(SkinType.Trend);
-                IButton button = factory.CreateButton();
-                ICheckBox checkBox = factory.CreateCheckBox();
-                button.Display();
-                checkBox.Display();
+                //LogicFactory logicFactory = new LogicFactory();
+                //ISkinFactory factory = logicFactory.CheckFacotry(SkinType.Trend);
+                //IButton button = factory.CreateButton();
+                //ICheckBox checkBox = factory.CreateCheckBox();
+                //button.Display();
+                //checkBox.Display();
+
+            }
+            {
+                //建造者模式:讲一个辅助对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。
+
+                {
+                    //一般情况
+                    ActorController controller = new ActorController();//实例化指挥者
+                    ActorBuilder builder = new AngleBuilder();//创建天使
+                    Actor actor = controller.Construct(builder);//返回角色具体的信息
+                    Console.WriteLine(actor.Type);
+                    Console.WriteLine(actor.Name);
+
+
+                   
+                }
+                {
+                    ActorController controller = new ActorController();//实例化指挥者
+                    ActorBuilder builder = new DevilBuilder();//创建恶魔
+                    Actor actor = controller.Construct(builder);//返回角色具体的信息
+                    Console.WriteLine(actor.Type);
+                    Console.WriteLine(actor.Name);
+                }
+                {
+                    //合并指挥者和抽象建造者
+                    //AngleBuilder angle = new AngleBuilder();
+                    //Actor actor = ActorBuilder.CreateActor(angle);
+                    //Console.WriteLine(actor.Type);
+                    //Console.WriteLine(actor.Name);
+                }
+
+
 
             }
             Console.ReadKey();
