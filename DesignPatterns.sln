@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractFactoryPattern", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderPattern", "BuilderPattern\BuilderPattern.csproj", "{637BB533-C715-4790-9FD3-7CC75974972C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrototypePattern", "PrototypePattern\PrototypePattern.csproj", "{5EBD49F7-5D3C-4B46-B445-132D6C15F6FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingletonPattern", "SingletonPattern\SingletonPattern.csproj", "{6F05D54A-BF8F-489C-85C2-4F357B52F1D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{637BB533-C715-4790-9FD3-7CC75974972C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{637BB533-C715-4790-9FD3-7CC75974972C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{637BB533-C715-4790-9FD3-7CC75974972C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EBD49F7-5D3C-4B46-B445-132D6C15F6FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EBD49F7-5D3C-4B46-B445-132D6C15F6FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EBD49F7-5D3C-4B46-B445-132D6C15F6FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EBD49F7-5D3C-4B46-B445-132D6C15F6FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F05D54A-BF8F-489C-85C2-4F357B52F1D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F05D54A-BF8F-489C-85C2-4F357B52F1D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F05D54A-BF8F-489C-85C2-4F357B52F1D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F05D54A-BF8F-489C-85C2-4F357B52F1D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -53,7 +53,7 @@ namespace Demonstration
                     Console.WriteLine(actor.Name);
 
 
-                   
+
                 }
                 {
                     ActorController controller = new ActorController();//实例化指挥者
@@ -69,6 +69,31 @@ namespace Demonstration
                     //Console.WriteLine(actor.Type);
                     //Console.WriteLine(actor.Name);
                 }
+                { 
+                //原型模式
+
+
+                }
+                {
+                    //单例模式
+                    { 
+                    //普通
+                    }
+                    { 
+                    //饿汉式
+                    }
+                    { 
+                    //懒汉式
+                    }
+
+                }
+
+
+
+
+
+
+
 
 
 
