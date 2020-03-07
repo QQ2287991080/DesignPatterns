@@ -2,6 +2,7 @@
 using AbstractFactoryPattern.Factory;
 using BuilderPattern;
 using FactoryPattern;
+using PrototypePattern;
 using SimpleFactoryPattern;
 using System;
 using System.Collections.Generic;
@@ -46,21 +47,19 @@ namespace Demonstration
 
                 {
                     //一般情况
-                    ActorController controller = new ActorController();//实例化指挥者
-                    ActorBuilder builder = new AngleBuilder();//创建天使
-                    Actor actor = controller.Construct(builder);//返回角色具体的信息
-                    Console.WriteLine(actor.Type);
-                    Console.WriteLine(actor.Name);
-
-
+                    //ActorController controller = new ActorController();//实例化指挥者
+                    //ActorBuilder builder = new AngleBuilder();//创建天使
+                    //Actor actor = controller.Construct(builder);//返回角色具体的信息
+                    //Console.WriteLine(actor.Type);
+                    //Console.WriteLine(actor.Name);
 
                 }
                 {
-                    ActorController controller = new ActorController();//实例化指挥者
-                    ActorBuilder builder = new DevilBuilder();//创建恶魔
-                    Actor actor = controller.Construct(builder);//返回角色具体的信息
-                    Console.WriteLine(actor.Type);
-                    Console.WriteLine(actor.Name);
+                    //ActorController controller = new ActorController();//实例化指挥者
+                    //ActorBuilder builder = new DevilBuilder();//创建恶魔
+                    //Actor actor = controller.Construct(builder);//返回角色具体的信息
+                    //Console.WriteLine(actor.Type);
+                    //Console.WriteLine(actor.Name);
                 }
                 {
                     //合并指挥者和抽象建造者
@@ -69,33 +68,47 @@ namespace Demonstration
                     //Console.WriteLine(actor.Type);
                     //Console.WriteLine(actor.Name);
                 }
-                { 
-                //原型模式
-
+                {
+                    //原型模式:使用原型实例指定待创建对象的类型，并且通过复制这个原型来创建新的对象
+                    {
+                        //通用实现
+                        //ConcretePrototype prototype = new ConcretePrototype();
+                        //prototype.Attr = "机器人壹号";
+                        //ConcretePrototype copy = (ConcretePrototype)prototype.Clone();
+                        //Console.WriteLine("克隆"+copy.Attr);
+                        //Console.WriteLine(prototype==copy);//false--虽然复制了对象但是内存中的对象副本不是同一个所以他们是不相等的
+                        //Console.WriteLine(prototype.Attr==copy.Attr);//false 
+                    }
+                    {
+                        //c#中的 MemberwiseClone和 ICloneable
+                        //MemberwiseClone实现浅克隆
+                        //ConcretePrototypeA prototype = new ConcretePrototypeA();
+                        //var copy = (ConcretePrototypeA)prototype.Clone();
+                        //Console.WriteLine(copy==prototype);
+                        //Console.WriteLine(copy.Member==prototype.Member);//ture  --复制后的两个对象相等说明是浅克隆
+                    }
+                    {
+                        //ICloneable实现深克隆
+                        ConcretePrototypeB prototype = new ConcretePrototypeB();
+                        var copy = (ConcretePrototypeB)prototype.Clone();
+                        Console.WriteLine(copy == prototype);//false
+                        Console.WriteLine(copy.Member == prototype.Member);//false
+                    }
 
                 }
                 {
                     //单例模式
-                    { 
-                    //普通
+                    {
+                        //普通
                     }
-                    { 
-                    //饿汉式
+                    {
+                        //饿汉式
                     }
-                    { 
-                    //懒汉式
+                    {
+                        //懒汉式
                     }
 
                 }
-
-
-
-
-
-
-
-
-
 
             }
             Console.ReadKey();

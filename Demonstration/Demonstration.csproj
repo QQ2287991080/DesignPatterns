@@ -62,9 +62,17 @@
       <Project>{55c4e018-a28b-4f6e-8d03-e230487f6377}</Project>
       <Name>FactoryPattern</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PrototypePattern\PrototypePattern.csproj">
+      <Project>{5ebd49f7-5d3c-4b46-b445-132d6c15f6fd}</Project>
+      <Name>PrototypePattern</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SimpleFactoryPattern\SimpleFactoryPattern.csproj">
       <Project>{e572a0be-e1f5-4515-85a9-a84405b42f45}</Project>
       <Name>SimpleFactoryPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SingletonPattern\SingletonPattern.csproj">
+      <Project>{6f05d54a-bf8f-489c-85c2-4f357b52f1d8}</Project>
+      <Name>SingletonPattern</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
