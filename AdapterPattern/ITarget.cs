@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SingletonPattern
+namespace AdapterPattern
 {
-    public class Class1
+  /// <summary>
+  /// 目标抽象类
+  /// </summary>
+   public interface ITarget
     {
+        void Request();
     }
 }

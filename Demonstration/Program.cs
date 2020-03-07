@@ -1,9 +1,12 @@
 ﻿using AbstractFactoryPattern.Abstract;
 using AbstractFactoryPattern.Factory;
+using AdapterPattern;
+using AdapterPattern.DefaultAdapterPattern;
 using BuilderPattern;
 using FactoryPattern;
 using PrototypePattern;
 using SimpleFactoryPattern;
+using SingletonPattern;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -89,28 +92,68 @@ namespace Demonstration
                     }
                     {
                         //ICloneable实现深克隆
-                        ConcretePrototypeB prototype = new ConcretePrototypeB();
-                        var copy = (ConcretePrototypeB)prototype.Clone();
-                        Console.WriteLine(copy == prototype);//false
-                        Console.WriteLine(copy.Member == prototype.Member);//false
+                        //ConcretePrototypeB prototype = new ConcretePrototypeB();
+                        //var copy = (ConcretePrototypeB)prototype.Clone();
+                        //Console.WriteLine(copy == prototype);//false
+                        //Console.WriteLine(copy.Member == prototype.Member);//false
                     }
 
                 }
                 {
-                    //单例模式
-                    {
-                        //普通
-                    }
-                    {
-                        //饿汉式
-                    }
-                    {
-                        //懒汉式
-                    }
+                    ////单例模式：确保一个类只有一个实例，并提供一个全局访问点来访问这个唯一的实例。
+                    //{
+                    //    //普通
+                    //    Singleton s1 = Singleton.GetInstance();
+                    //    Singleton s2 = Singleton.GetInstance();
+                    //    Console.WriteLine(s1==s2);//true 
+
+                    //}
+                    //{
+                    //    //饿汉式:在类被加载时就实例化自己，好处在于它是能够保证线程安全的，由于单例对象是在一开始就创建，所以调用速度和反应时间都是比懒汉式快的，但是在系统资源的利用方面饿汉式是不如懒汉式的，这很好理解，因为饿汉式是会一直占用系统资源的，但是懒汉式是需要的时候才去加载。
+                    //    EagerSingleton s1 = EagerSingleton.GetIntance() ;
+                    //    EagerSingleton s2 = EagerSingleton.GetIntance();
+                    //    Console.WriteLine(s1==s2);
+
+                    //}
+                    //{
+                    //    //懒汉式:懒汉式在第一次实例化的时候创建，但是不会一直占用系统资源，实现了延时加载，但是随之而来的问题就是多个线程同时访问的问题，特别是当单例类作为资源控制器，在实例化时必然会涉及到资源初始化，而资源初始化很有可能耗费打量的时间，这意味着出现多线程同时首次引用此类的概率会比较大，通过双重检查锁定等机制进行控制，这 将导致系统性能收到一定的影响。
+                    //    LazySingleton s1 = LazySingleton.GetInstance();
+                    //    LazySingleton s2 = LazySingleton.GetInstance();
+                    //    Console.WriteLine(s1 == s2);
+                    //}
 
                 }
 
             }
+            {
+                //适配器模式：将一个类的接口换成客户希望的另一个接口，适配器模式让那些接口不兼容的类可以一起工作。
+                {
+                    //类适配器 
+                    ClassAdapter adapter = new ClassAdapter();
+                    adapter.Request();
+                }
+                {
+                    //对象适配器
+                    Adaptee adaptee = new Adaptee();
+                    ObjectAdapter adapter = new ObjectAdapter(adaptee);
+                    adapter.Request();
+                }
+                {
+                    //缺省适配器模式
+                    ConcreteService service = new ConcreteService();
+                    service.Face1();
+                }
+                {
+                    //双向适配器模式
+                    Adaptee adaptee = new Adaptee();
+                    Twoway twoway = new Twoway(adaptee);
+                    twoway.Request();//互相只能使用对方的方法，即：适配者类使用的是request方法，目标具体类使用适配者类的方法，否者会报错，这个？？？？？？？？？？？
+                    Target target = new Target();
+                    Twoway twoway2 = new Twoway(target);
+                    twoway2.SpecificRequest();
+                }
+            }
+
             Console.ReadKey();
 
         }
