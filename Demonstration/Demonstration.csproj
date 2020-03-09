@@ -58,6 +58,10 @@
       <Project>{a4981445-28cf-44d9-8094-eb914161733e}</Project>
       <Name>AdapterPattern</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BridgePattern\BridgePattern.csproj">
+      <Project>{5aa2925c-48e3-43bc-b0fe-2ddc6bb83691}</Project>
+      <Name>BridgePattern</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BuilderPattern\BuilderPattern.csproj">
       <Project>{637bb533-c715-4790-9fd3-7cc75974972c}</Project>
       <Name>BuilderPattern</Name>

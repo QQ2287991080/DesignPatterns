@@ -2,6 +2,7 @@
 using AbstractFactoryPattern.Factory;
 using AdapterPattern;
 using AdapterPattern.DefaultAdapterPattern;
+using BridgePattern;
 using BuilderPattern;
 using FactoryPattern;
 using PrototypePattern;
@@ -126,36 +127,43 @@ namespace Demonstration
 
             }
             {
-                //适配器模式：将一个类的接口换成客户希望的另一个接口，适配器模式让那些接口不兼容的类可以一起工作。
-                {
-                    //类适配器 
-                    ClassAdapter adapter = new ClassAdapter();
-                    adapter.Request();
-                }
-                {
-                    //对象适配器
-                    Adaptee adaptee = new Adaptee();
-                    ObjectAdapter adapter = new ObjectAdapter(adaptee);
-                    adapter.Request();
-                }
-                {
-                    //缺省适配器模式
-                    ConcreteService service = new ConcreteService();
-                    service.Face1();
-                }
-                {
-                    //双向适配器模式
-                    Adaptee adaptee = new Adaptee();
-                    Twoway twoway = new Twoway(adaptee);
-                    twoway.Request();//互相只能使用对方的方法，即：适配者类使用的是request方法，目标具体类使用适配者类的方法，否者会报错，这个？？？？？？？？？？？
-                    Target target = new Target();
-                    Twoway twoway2 = new Twoway(target);
-                    twoway2.SpecificRequest();
-                }
+                ////适配器模式：将一个类的接口换成客户希望的另一个接口，适配器模式让那些接口不兼容的类可以一起工作。
+                //{
+                //    //类适配器 
+                //    ClassAdapter adapter = new ClassAdapter();
+                //    adapter.Request();
+                //}
+                //{
+                //    //对象适配器
+                //    Adaptee adaptee = new Adaptee();
+                //    ObjectAdapter adapter = new ObjectAdapter(adaptee);
+                //    adapter.Request();
+                //}
+                //{
+                //    //缺省适配器模式
+                //    ConcreteService service = new ConcreteService();
+                //    service.Face1();
+                //}
+                //{
+                //    //双向适配器模式
+                //    Adaptee adaptee = new Adaptee();
+                //    Twoway twoway = new Twoway(adaptee);
+                //    twoway.Request();//互相只能使用对方的方法，即：适配者类使用的是request方法，目标具体类使用适配者类的方法，否者会报错，这个？？？？？？？？？？？
+                //    Target target = new Target();
+                //    Twoway twoway2 = new Twoway(target);
+                //    twoway2.SpecificRequest();
+                //}
             }
 
+            {
+                //桥接模式：将抽象部分与它的实现部分解耦，使得两者能够独立变化
+                RefinedAbstraction refined = new RefinedAbstraction();
+                ConcreteImplementor concrete = new ConcreteImplementor();
+                refined.SetImp1(concrete);
+                refined.OperationImp();
+            }
             Console.ReadKey();
-
+             
         }
     }
 }
