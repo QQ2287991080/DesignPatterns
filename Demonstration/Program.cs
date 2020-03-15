@@ -4,6 +4,8 @@ using AdapterPattern;
 using AdapterPattern.DefaultAdapterPattern;
 using BridgePattern;
 using BuilderPattern;
+using DecoratorPattern;
+using FacadePattern;
 using FactoryPattern;
 using PrototypePattern;
 using SimpleFactoryPattern;
@@ -157,13 +159,46 @@ namespace Demonstration
 
             {
                 //桥接模式：将抽象部分与它的实现部分解耦，使得两者能够独立变化
-                RefinedAbstraction refined = new RefinedAbstraction();
-                ConcreteImplementor concrete = new ConcreteImplementor();
-                refined.SetImp1(concrete);
-                refined.OperationImp();
+                //RefinedAbstraction refined = new RefinedAbstraction();
+                //ConcreteImplementor concrete = new ConcreteImplementor();
+                //refined.SetImp1(concrete);
+                //refined.OperationImp();
             }
+            {
+                ////装饰模式:动态地给一个对象增加一些额外的职责。就扩展功能而言，装饰模式提供了一种比使用子类更灵活的替代方案
+                //{
+                //    //寻常调用
+                //    ConcreteComponent component = new ConcreteComponent();
+                //    ConcreteDecorator decorator = new ConcreteDecorator(component);
+                //    decorator.Operation();
+                //    decorator.Add();
+                //}
+                //{
+                //    //透明模式
+                //    Component component = new ConcreteComponent();
+                //    Component decorator = new ConcreteDecorator(component);
+                //    decorator.Operation();
+                //    //decorator.Add();无法单独调用该方法，但是可以放在Operation方法中一起执行
+
+                //}
+                //{
+                //    //半透明模式
+                //    Component component = new ConcreteComponent();//使用抽象构件类型定义
+                //    component.Operation();
+                //    ConcreteDecorator decorator = new ConcreteDecorator(component);//使用具体装饰定义
+                //    decorator.Add();//单独使用新增方法。
+                //}  
+                   
+            }
+            {
+                //外观模式：为子系统中的一组接口提供一个统一的入口。外观模式定义一个高层接口，这个接口是的这一子系统更容易使用。
+                Facade facade = new Facade();
+                facade.Meathod();
+            }
+
             Console.ReadKey();
              
         }
     }
 }
+ 
