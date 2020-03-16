@@ -66,9 +66,13 @@
       <Project>{637bb533-c715-4790-9fd3-7cc75974972c}</Project>
       <Name>BuilderPattern</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CompositePattern\CompositePattern.csproj">
-      <Project>{5c2c01db-dde2-43d1-b017-7c0a62945663}</Project>
-      <Name>CompositePattern</Name>
+    <ProjectReference Include="..\DecoratorPattern\DecoratorPattern.csproj">
+      <Project>{caed4554-c6ff-4580-b682-124dcf5b13fe}</Project>
+      <Name>DecoratorPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FacadePattern\FacadePattern.csproj">
+      <Project>{c1cee784-787c-4b3d-bc7e-ade1ab713e74}</Project>
+      <Name>FacadePattern</Name>
     </ProjectReference>
     <ProjectReference Include="..\FactoryPattern\FactoryPattern.csproj">
       <Project>{55c4e018-a28b-4f6e-8d03-e230487f6377}</Project>
