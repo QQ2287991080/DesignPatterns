@@ -4,6 +4,7 @@ using AdapterPattern;
 using AdapterPattern.DefaultAdapterPattern;
 using BridgePattern;
 using BuilderPattern;
+using CompositePattern;
 using FactoryPattern;
 using PrototypePattern;
 using SimpleFactoryPattern;
@@ -157,10 +158,20 @@ namespace Demonstration
 
             {
                 //桥接模式：将抽象部分与它的实现部分解耦，使得两者能够独立变化
-                RefinedAbstraction refined = new RefinedAbstraction();
-                ConcreteImplementor concrete = new ConcreteImplementor();
-                refined.SetImp1(concrete);
-                refined.OperationImp();
+                //RefinedAbstraction refined = new RefinedAbstraction();
+                //ConcreteImplementor concrete = new ConcreteImplementor();
+                //refined.SetImp1(concrete);
+                //refined.OperationImp();
+            }
+            {
+                //组合模式：组合多个对象形成树形结构以表示具有部分-整体关系的层次接口。组合模式让客户端可以统一对待单个对象和组合对象。
+
+                Composite composite = new Composite();
+                Food f = new Food();
+                Leaf leaf = new Leaf();
+                composite.Add(f);
+                composite.Add(leaf);
+                composite.Operation();
             }
             Console.ReadKey();
              
