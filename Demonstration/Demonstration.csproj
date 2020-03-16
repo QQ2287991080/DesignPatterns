@@ -78,6 +78,10 @@
       <Project>{55c4e018-a28b-4f6e-8d03-e230487f6377}</Project>
       <Name>FactoryPattern</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FlyweightPattern\FlyweightPattern.csproj">
+      <Project>{4ef432a7-a86e-472f-bfdc-c0f35484a0c5}</Project>
+      <Name>FlyweightPattern</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PrototypePattern\PrototypePattern.csproj">
       <Project>{5ebd49f7-5d3c-4b46-b445-132d6c15f6fd}</Project>
       <Name>PrototypePattern</Name>

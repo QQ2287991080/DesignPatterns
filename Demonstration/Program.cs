@@ -7,6 +7,7 @@ using BuilderPattern;
 using DecoratorPattern;
 using FacadePattern;
 using FactoryPattern;
+using FlyweightPattern;
 using PrototypePattern;
 using SimpleFactoryPattern;
 using SingletonPattern;
@@ -192,8 +193,47 @@ namespace Demonstration
             }
             {
                 //外观模式：为子系统中的一组接口提供一个统一的入口。外观模式定义一个高层接口，这个接口是的这一子系统更容易使用。
-                Facade facade = new Facade();
-                facade.Meathod();
+                //Facade facade = new Facade();
+                //facade.Meathod();
+            }
+            {
+                //享元模式：运用共享技术有效的支持大量细粒度对象的复用。
+                {
+
+                    //IgoChessmanFactory factory = IgoChessmanFactory.GetIntance();
+                    //var white = factory.GetIgoChessman("w");
+                    //white.GetColor();
+                    //white.Display(new Coordinates(1, 2));
+                    //var black = factory.GetIgoChessman("b");
+                    //black.GetColor();
+                    //black.Display(new Coordinates(2, 1));
+                }
+                {
+                    //复合享元对象，使多个内部状态不同的对象设置为相同的外部状态（结合组合模式使用）
+
+                    IgoChessmanFactory factory = IgoChessmanFactory.GetIntance();
+                    var w1= factory.GetIgoChessman("w");
+                    var w2= factory.GetIgoChessman("w");
+                    var w3= factory.GetIgoChessman("w");
+                    var w4= factory.GetIgoChessman("w");
+                    var b1= factory.GetIgoChessman("b");
+                    var b2= factory.GetIgoChessman("b");
+                    var b3= factory.GetIgoChessman("b");
+                    var b4= factory.GetIgoChessman("b");
+
+                    CompositeConcreteFlyWeight flyWeight = new CompositeConcreteFlyWeight();
+                    flyWeight.Add(w1, new Coordinates(1, 1));
+                    flyWeight.Add(w2, new Coordinates(1, 2));
+                    flyWeight.Add(w3, new Coordinates(1, 3));
+                    flyWeight.Add(w4, new Coordinates(1, 4));
+                    flyWeight.Add(b1, new Coordinates(2, 1));
+                    flyWeight.Add(b2, new Coordinates(2, 2));
+                    flyWeight.Add(b3, new Coordinates(2, 3));
+                    flyWeight.Add(b4, new Coordinates(2, 4));
+                    flyWeight.Display();
+                    
+                }
+
             }
 
             Console.ReadKey();
