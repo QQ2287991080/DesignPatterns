@@ -4,11 +4,14 @@ using AdapterPattern;
 using AdapterPattern.DefaultAdapterPattern;
 using BridgePattern;
 using BuilderPattern;
+using ChainOfResponsibilityPattern;
+using ChainOfResponsibilityPattern.Concrete;
 using DecoratorPattern;
 using FacadePattern;
 using FactoryPattern;
 using FlyweightPattern;
 using PrototypePattern;
+using ProxyPattern;
 using SimpleFactoryPattern;
 using SingletonPattern;
 using System;
@@ -157,7 +160,6 @@ namespace Demonstration
                 //    twoway2.SpecificRequest();
                 //}
             }
-
             {
                 //桥接模式：将抽象部分与它的实现部分解耦，使得两者能够独立变化
                 //RefinedAbstraction refined = new RefinedAbstraction();
@@ -211,31 +213,57 @@ namespace Demonstration
                 {
                     //复合享元对象，使多个内部状态不同的对象设置为相同的外部状态（结合组合模式使用）
 
-                    IgoChessmanFactory factory = IgoChessmanFactory.GetIntance();
-                    var w1= factory.GetIgoChessman("w");
-                    var w2= factory.GetIgoChessman("w");
-                    var w3= factory.GetIgoChessman("w");
-                    var w4= factory.GetIgoChessman("w");
-                    var b1= factory.GetIgoChessman("b");
-                    var b2= factory.GetIgoChessman("b");
-                    var b3= factory.GetIgoChessman("b");
-                    var b4= factory.GetIgoChessman("b");
+                    //IgoChessmanFactory factory = IgoChessmanFactory.GetIntance();
+                    //var w1= factory.GetIgoChessman("w");
+                    //var w2= factory.GetIgoChessman("w");
+                    //var w3= factory.GetIgoChessman("w");
+                    //var w4= factory.GetIgoChessman("w");
+                    //var b1= factory.GetIgoChessman("b");
+                    //var b2= factory.GetIgoChessman("b");
+                    //var b3= factory.GetIgoChessman("b");
+                    //var b4= factory.GetIgoChessman("b");
 
-                    CompositeConcreteFlyWeight flyWeight = new CompositeConcreteFlyWeight();
-                    flyWeight.Add(w1, new Coordinates(1, 1));
-                    flyWeight.Add(w2, new Coordinates(1, 2));
-                    flyWeight.Add(w3, new Coordinates(1, 3));
-                    flyWeight.Add(w4, new Coordinates(1, 4));
-                    flyWeight.Add(b1, new Coordinates(2, 1));
-                    flyWeight.Add(b2, new Coordinates(2, 2));
-                    flyWeight.Add(b3, new Coordinates(2, 3));
-                    flyWeight.Add(b4, new Coordinates(2, 4));
-                    flyWeight.Display();
+                    //CompositeConcreteFlyWeight flyWeight = new CompositeConcreteFlyWeight();
+                    //flyWeight.Add(w1, new Coordinates(1, 1));
+                    //flyWeight.Add(w2, new Coordinates(1, 2));
+                    //flyWeight.Add(w3, new Coordinates(1, 3));
+                    //flyWeight.Add(w4, new Coordinates(1, 4));
+                    //flyWeight.Add(b1, new Coordinates(2, 1));
+                    //flyWeight.Add(b2, new Coordinates(2, 2));
+                    //flyWeight.Add(b3, new Coordinates(2, 3));
+                    //flyWeight.Add(b4, new Coordinates(2, 4));
+                    //flyWeight.Display();
                     
                 }
 
             }
+            {
+                //代理模式：给某一个对象提供一个代理或占位符，并由代理对象来控制对原对象的访问
+                //远程代理
+                //虚拟代理
+                //缓冲代理
+                //保护代理
+                //智能引用代理
+                {
+                    //保护代理+智能代理
+                    //ProxySearcher searcher = new ProxySearcher();
+                    //searcher.DoSearch("Zero", "敏敏");
+                }
+            }
+            {
+                //职责链模式：避免将一个请求的发送者与接受者耦合在一起，让多个对象都有机会处理请求。将接受的对象连接成一条链，并且沿着这条链传递请求，知道一个对象能够处理它为止。
+                Approver approver, approver1, approver2;
+                approver = new Director("张主任");
+                approver1 = new VicePresident("张副总");
+                approver2 = new President("张总");
 
+                //创建职责链
+                approver.SetSuccesser(approver1);//下级传递给上一级
+                approver1.SetSuccesser(approver2);
+
+                PurchaseRequest request = new PurchaseRequest(5_5_0_0_0,10001,"买电脑");
+                approver.ProcessRequest(request);
+            }
             Console.ReadKey();
              
         }
