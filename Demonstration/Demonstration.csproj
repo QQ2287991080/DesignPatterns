@@ -66,6 +66,10 @@
       <Project>{637bb533-c715-4790-9fd3-7cc75974972c}</Project>
       <Name>BuilderPattern</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ChainOfResponsibilityPattern\ChainOfResponsibilityPattern.csproj">
+      <Project>{dad9dd27-7640-4ef6-b9da-21ea7e16f14e}</Project>
+      <Name>ChainOfResponsibilityPattern</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DecoratorPattern\DecoratorPattern.csproj">
       <Project>{caed4554-c6ff-4580-b682-124dcf5b13fe}</Project>
       <Name>DecoratorPattern</Name>
@@ -85,6 +89,10 @@
     <ProjectReference Include="..\PrototypePattern\PrototypePattern.csproj">
       <Project>{5ebd49f7-5d3c-4b46-b445-132d6c15f6fd}</Project>
       <Name>PrototypePattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProxyPattern\ProxyPattern.csproj">
+      <Project>{936b7c94-2577-414e-8c1a-e4a2516d0554}</Project>
+      <Name>ProxyPattern</Name>
     </ProjectReference>
     <ProjectReference Include="..\SimpleFactoryPattern\SimpleFactoryPattern.csproj">
       <Project>{e572a0be-e1f5-4515-85a9-a84405b42f45}</Project>
