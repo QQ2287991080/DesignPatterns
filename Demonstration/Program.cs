@@ -10,6 +10,7 @@ using DecoratorPattern;
 using FacadePattern;
 using FactoryPattern;
 using FlyweightPattern;
+using IteratorPattern;
 using PrototypePattern;
 using ProxyPattern;
 using SimpleFactoryPattern;
@@ -252,17 +253,40 @@ namespace Demonstration
             }
             {
                 //职责链模式：避免将一个请求的发送者与接受者耦合在一起，让多个对象都有机会处理请求。将接受的对象连接成一条链，并且沿着这条链传递请求，知道一个对象能够处理它为止。
-                Approver approver, approver1, approver2;
-                approver = new Director("张主任");
-                approver1 = new VicePresident("张副总");
-                approver2 = new President("张总");
+                //Approver approver, approver1, approver2;
+                //approver = new Director("张主任");
+                //approver1 = new VicePresident("张副总");
+                //approver2 = new President("张总");
 
-                //创建职责链
-                approver.SetSuccesser(approver1);//下级传递给上一级
-                approver1.SetSuccesser(approver2);
+                ////创建职责链
+                //approver.SetSuccesser(approver1);//下级传递给上一级
+                //approver1.SetSuccesser(approver2);
 
-                PurchaseRequest request = new PurchaseRequest(5_5_0_0_0,10001,"买电脑");
-                approver.ProcessRequest(request);
+                //PurchaseRequest request = new PurchaseRequest(5_5_0_0_0,10001,"买电脑");
+                //approver.ProcessRequest(request);
+            }
+            {
+                //迭代器模式：提供一种方法访问一个聚合元素中的各个元素，并且不暴露对象的内部表示
+                List<object> list = new List<object>();
+                list.Add("张大力");
+                list.Add("罗小敏");
+
+                AbstractObjectList productList = new ProductList(list);//创建聚合对象
+                AbstractIterator iterator = productList.CreateIterator();//创建迭代对象
+                while (!iterator.IsLast())//正向遍历
+                {
+                    Console.WriteLine(iterator.GetNextItem());
+                    iterator.Next();
+                }
+
+                while (!iterator.IsFirst())//反向遍历
+                {
+                    Console.WriteLine(iterator.GetPreviousItem());
+                    iterator.Previous();
+                }
+            }
+            { 
+             //中介者模式：定义一个对象封装一系列对象的交互，中介者模式使对象之间不需要显示的相互引用，从而使其耦合松散，而且你可以独立的改变他们之间的交互。
             }
             Console.ReadKey();
              
