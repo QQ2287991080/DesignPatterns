@@ -11,6 +11,8 @@ using FacadePattern;
 using FactoryPattern;
 using FlyweightPattern;
 using IteratorPattern;
+using MediatorPattern;
+using MementoPattern;
 using PrototypePattern;
 using ProxyPattern;
 using SimpleFactoryPattern;
@@ -170,28 +172,28 @@ namespace Demonstration
             }
             {
                 //装饰模式:动态地给一个对象增加一些额外的职责。就扩展功能而言，装饰模式提供了一种比使用子类更灵活的替代方案
-                {
-                    //寻常调用
-                    ConcreteComponent component = new ConcreteComponent();
-                    ConcreteDecorator decorator = new ConcreteDecorator(component);
-                    decorator.Operation();
-                    decorator.Add();
-                }
-                {
-                    //透明模式
-                    Component component = new ConcreteComponent();
-                    Component decorator = new ConcreteDecorator(component);
-                    decorator.Operation();
-                    //decorator.Add();无法单独调用该方法，但是可以放在Operation方法中一起执行
+                //{
+                //    //寻常调用
+                //    ConcreteComponent component = new ConcreteComponent();
+                //    ConcreteDecorator decorator = new ConcreteDecorator(component);
+                //    decorator.Operation();
+                //    decorator.Add();
+                //}
+                //{
+                //    //透明模式
+                //    Component component = new ConcreteComponent();
+                //    Component decorator = new ConcreteDecorator(component);
+                //    decorator.Operation();
+                //    //decorator.Add();无法单独调用该方法，但是可以放在Operation方法中一起执行
 
-                }
-                {
-                    //半透明模式
-                    Component component = new ConcreteComponent();//使用抽象构件类型定义
-                    component.Operation();
-                    ConcreteDecorator decorator = new ConcreteDecorator(component);//使用具体装饰定义
-                    decorator.Add();//单独使用新增方法。
-                }
+                //}
+                //{
+                //    //半透明模式
+                //    Component component = new ConcreteComponent();//使用抽象构件类型定义
+                //    component.Operation();
+                //    ConcreteDecorator decorator = new ConcreteDecorator(component);//使用具体装饰定义
+                //    decorator.Add();//单独使用新增方法。
+                //}
 
             }
             {
@@ -267,30 +269,58 @@ namespace Demonstration
             }
             {
                 //迭代器模式：提供一种方法访问一个聚合元素中的各个元素，并且不暴露对象的内部表示
-                List<object> list = new List<object>();
-                list.Add("张大力");
-                list.Add("罗小敏");
+                //List<object> list = new List<object>();
+                //list.Add("张大力");
+                //list.Add("罗小敏");
 
-                AbstractObjectList productList = new ProductList(list);//创建聚合对象
-                AbstractIterator iterator = productList.CreateIterator();//创建迭代对象
-                while (!iterator.IsLast())//正向遍历
-                {
-                    Console.WriteLine(iterator.GetNextItem());
-                    iterator.Next();
-                }
+                //AbstractObjectList productList = new ProductList(list);//创建聚合对象
+                //AbstractIterator iterator = productList.CreateIterator();//创建迭代对象
+                //while (!iterator.IsLast())//正向遍历
+                //{
+                //    Console.WriteLine(iterator.GetNextItem());
+                //    iterator.Next();
+                //}
 
-                while (!iterator.IsFirst())//反向遍历
-                {
-                    Console.WriteLine(iterator.GetPreviousItem());
-                    iterator.Previous();
-                }
+                //while (!iterator.IsFirst())//反向遍历
+                //{
+                //    Console.WriteLine(iterator.GetPreviousItem());
+                //    iterator.Previous();
+                //}
             }
-            { 
-             //中介者模式：定义一个对象封装一系列对象的交互，中介者模式使对象之间不需要显示的相互引用，从而使其耦合松散，而且你可以独立的改变他们之间的交互。
+            {
+                //中介者模式：定义一个对象封装一系列对象的交互，中介者模式使对象之间不需要显示的相互引用，从而使其耦合松散，而且你可以独立的改变他们之间的交互。
+                //定义中介者对象
+                //ConcreteMediator concrete = new ConcreteMediator();
+                //定义同事对象
+                //Button button = new Button();
+                //ListView listView = new ListView();
+                //TextBox textBox = new TextBox();
+                ////设置中介者
+                //button.SetMediator(concrete);
+                //listView.SetMediator(concrete);
+                //textBox.SetMediator(concrete);
+
+                //concrete.TextBox = textBox;
+                //concrete.ListView = listView;
+                //concrete.Button = button;
+
+                //button.Charged();
+                //textBox.Charged();
+                //listView.Charged();
+                 
+
+
+
+
+            }
+            {
+                //备忘录模式：在不破坏封装的情况下，捕获一个对象的内部状态，并在该对象之外保存这个状态，这样就可以将对象恢复到原先保存的状态
+                Execute.Invoke();
+                Execute.Invokes();
+
             }
             Console.ReadKey();
-             
-        }
+         }
     }
 }
  

@@ -94,6 +94,10 @@
       <Project>{df4dbac9-4100-4928-84aa-e80253fae06d}</Project>
       <Name>MediatorPattern</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MementoPattern\MementoPattern.csproj">
+      <Project>{a45ffc09-4a77-4c4c-8254-dc41e588017a}</Project>
+      <Name>MementoPattern</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PrototypePattern\PrototypePattern.csproj">
       <Project>{5ebd49f7-5d3c-4b46-b445-132d6c15f6fd}</Project>
       <Name>PrototypePattern</Name>
