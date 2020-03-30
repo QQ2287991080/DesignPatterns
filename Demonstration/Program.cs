@@ -6,10 +6,13 @@ using BridgePattern;
 using BuilderPattern;
 using ChainOfResponsibilityPattern;
 using ChainOfResponsibilityPattern.Concrete;
+using CommandPattern;
+using CommandPattern.ConcreteCommand;
 using DecoratorPattern;
 using FacadePattern;
 using FactoryPattern;
 using FlyweightPattern;
+using InterpreterPattern;
 using PrototypePattern;
 using ProxyPattern;
 using SimpleFactoryPattern;
@@ -169,28 +172,28 @@ namespace Demonstration
             }
             {
                 //装饰模式:动态地给一个对象增加一些额外的职责。就扩展功能而言，装饰模式提供了一种比使用子类更灵活的替代方案
-                {
-                    //寻常调用
-                    ConcreteComponent component = new ConcreteComponent();
-                    ConcreteDecorator decorator = new ConcreteDecorator(component);
-                    decorator.Operation();
-                    decorator.Add();
-                }
-                {
-                    //透明模式
-                    Component component = new ConcreteComponent();
-                    Component decorator = new ConcreteDecorator(component);
-                    decorator.Operation();
-                    //decorator.Add();无法单独调用该方法，但是可以放在Operation方法中一起执行
+                //{
+                //    //寻常调用
+                //    ConcreteComponent component = new ConcreteComponent();
+                //    ConcreteDecorator decorator = new ConcreteDecorator(component);
+                //    decorator.Operation();
+                //    decorator.Add();
+                //}
+                //{
+                //    //透明模式
+                //    Component component = new ConcreteComponent();
+                //    Component decorator = new ConcreteDecorator(component);
+                //    decorator.Operation();
+                //    //decorator.Add();无法单独调用该方法，但是可以放在Operation方法中一起执行
 
-                }
-                {
-                    //半透明模式
-                    Component component = new ConcreteComponent();//使用抽象构件类型定义
-                    component.Operation();
-                    ConcreteDecorator decorator = new ConcreteDecorator(component);//使用具体装饰定义
-                    decorator.Add();//单独使用新增方法。
-                }
+                //}
+                //{
+                //    //半透明模式
+                //    Component component = new ConcreteComponent();//使用抽象构件类型定义
+                //    component.Operation();
+                //    ConcreteDecorator decorator = new ConcreteDecorator(component);//使用具体装饰定义
+                //    decorator.Add();//单独使用新增方法。
+                //}
 
             }
             {
@@ -252,20 +255,32 @@ namespace Demonstration
             }
             {
                 //职责链模式：避免将一个请求的发送者与接受者耦合在一起，让多个对象都有机会处理请求。将接受的对象连接成一条链，并且沿着这条链传递请求，知道一个对象能够处理它为止。
-                Approver approver, approver1, approver2;
-                approver = new Director("张主任");
-                approver1 = new VicePresident("张副总");
-                approver2 = new President("张总");
 
-                //创建职责链
-                approver.SetSuccesser(approver1);//下级传递给上一级
-                approver1.SetSuccesser(approver2);
 
-                PurchaseRequest request = new PurchaseRequest(5_5_0_0_0,10001,"买电脑");
-                approver.ProcessRequest(request);
+            }
+            {
+                //命令模式：将一个请求封装为一个对象，从而让你可以用不同的请求对客户进行参数化，对请求排队或者记录请求日志，以及支持撤销的功能。
+                //Command command, command1;
+                //command = new ExitCommand();
+                //command1 = new HelpCommand();
+                //FunctionButton button = new FunctionButton();
+                //button.Command = command;
+                ////button.Click();
+                //CommandQueue queue = new CommandQueue();//命令队列，CommandQueue的Excute方法虽然可以使用但是客户端使用不够好的，必须要让请求对象FunctionButton来发送请求。
+                //queue.AddCommand(command);
+                //queue.AddCommand(command1);
+                ////queue.Excute();
+                //button.Clicks(queue);
+            }
+            {
+                //解释器模式：给定一个语言，定义他的文法的一种表示，并定义一个解释器，这个解释器表示来解释语言中的句子。
+                string str = "down run 10 and left move 20";
+                InstruetionHandler handler = new InstruetionHandler();
+                 handler.Handle(str);
+                var result = handler.Output();
+                Console.WriteLine(result);
             }
             Console.ReadKey();
-             
         }
     }
 }

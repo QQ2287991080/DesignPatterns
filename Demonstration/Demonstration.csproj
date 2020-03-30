@@ -70,6 +70,10 @@
       <Project>{dad9dd27-7640-4ef6-b9da-21ea7e16f14e}</Project>
       <Name>ChainOfResponsibilityPattern</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CommandPattern\CommandPattern.csproj">
+      <Project>{be45135b-f377-4965-bc6a-23a8d492ff36}</Project>
+      <Name>CommandPattern</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DecoratorPattern\DecoratorPattern.csproj">
       <Project>{caed4554-c6ff-4580-b682-124dcf5b13fe}</Project>
       <Name>DecoratorPattern</Name>
@@ -85,6 +89,10 @@
     <ProjectReference Include="..\FlyweightPattern\FlyweightPattern.csproj">
       <Project>{4ef432a7-a86e-472f-bfdc-c0f35484a0c5}</Project>
       <Name>FlyweightPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InterpreterPattern\InterpreterPattern.csproj">
+      <Project>{18e97200-6085-476b-ab5a-0f320eb6b284}</Project>
+      <Name>InterpreterPattern</Name>
     </ProjectReference>
     <ProjectReference Include="..\PrototypePattern\PrototypePattern.csproj">
       <Project>{5ebd49f7-5d3c-4b46-b445-132d6c15f6fd}</Project>
