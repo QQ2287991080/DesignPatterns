@@ -90,9 +90,17 @@
       <Project>{4ef432a7-a86e-472f-bfdc-c0f35484a0c5}</Project>
       <Name>FlyweightPattern</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InterpreterPattern\InterpreterPattern.csproj">
-      <Project>{18e97200-6085-476b-ab5a-0f320eb6b284}</Project>
-      <Name>InterpreterPattern</Name>
+    <ProjectReference Include="..\IteratorPattern\IteratorPattern.csproj">
+      <Project>{9849acd5-5bb7-46bf-8ce0-06307dda4497}</Project>
+      <Name>IteratorPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MediatorPattern\MediatorPattern.csproj">
+      <Project>{df4dbac9-4100-4928-84aa-e80253fae06d}</Project>
+      <Name>MediatorPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MementoPattern\MementoPattern.csproj">
+      <Project>{a45ffc09-4a77-4c4c-8254-dc41e588017a}</Project>
+      <Name>MementoPattern</Name>
     </ProjectReference>
     <ProjectReference Include="..\PrototypePattern\PrototypePattern.csproj">
       <Project>{5ebd49f7-5d3c-4b46-b445-132d6c15f6fd}</Project>
