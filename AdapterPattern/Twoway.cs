@@ -30,7 +30,7 @@ namespace AdapterPattern
         {
             _Adaptee.SpecificRequest();
         }
-        public  void SpecificRequest()
+        public new void SpecificRequest()
         {
             _Target.Request();
         }

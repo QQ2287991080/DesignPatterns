@@ -13,6 +13,7 @@ using FlyweightPattern;
 using IteratorPattern;
 using MediatorPattern;
 using MementoPattern;
+using ObServerPattern;
 using PrototypePattern;
 using ProxyPattern;
 using SimpleFactoryPattern;
@@ -315,9 +316,34 @@ namespace Demonstration
             }
             {
                 //备忘录模式：在不破坏封装的情况下，捕获一个对象的内部状态，并在该对象之外保存这个状态，这样就可以将对象恢复到原先保存的状态
-                Execute.Invoke();
-                Execute.Invokes();
+                //Execute.Invoke();
+                //Execute.Invokes();
 
+            }
+            {
+                //观察者模式：定义对象之间的一种一对多的依赖关系，使得每一个对象的状态发生改变时，其相关依赖对象得到通知并且自动更新。
+                AllyControllerCenter center = new ConcreteAllyControllerCenter("王者荣耀群");
+
+                IObserver observer, observer1, observer2, observer3, observer4;
+
+                observer = new Player("鲁班七号");
+                center.AddPlayer(observer);
+
+                observer1 = new Player("蔡文姬");
+                center.AddPlayer(observer1);
+
+                observer2 = new Player("甄姬");
+                center.AddPlayer(observer2);
+
+                observer3 = new Player("李白");
+                center.AddPlayer(observer3);
+
+                observer4 = new Player("凯");
+                center.AddPlayer(observer4);
+
+
+                //鲁班被毒打
+                observer.BeAttacked(center);
             }
             Console.ReadKey();
          }

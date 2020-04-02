@@ -98,6 +98,10 @@
       <Project>{a45ffc09-4a77-4c4c-8254-dc41e588017a}</Project>
       <Name>MementoPattern</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ObServerPattern\ObServerPattern.csproj">
+      <Project>{e3f8f4ee-3952-4ffa-adad-10512646f67e}</Project>
+      <Name>ObServerPattern</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PrototypePattern\PrototypePattern.csproj">
       <Project>{5ebd49f7-5d3c-4b46-b445-132d6c15f6fd}</Project>
       <Name>PrototypePattern</Name>
