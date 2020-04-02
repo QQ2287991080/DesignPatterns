@@ -6,6 +6,8 @@ using BridgePattern;
 using BuilderPattern;
 using ChainOfResponsibilityPattern;
 using ChainOfResponsibilityPattern.Concrete;
+using CommandPattern;
+using CommandPattern.ConcreteCommand;
 using DecoratorPattern;
 using FacadePattern;
 using FactoryPattern;
@@ -344,6 +346,28 @@ namespace Demonstration
 
                 //鲁班被毒打
                 observer.BeAttacked(center);
+            }
+            {
+                //命令模式：将一个请求封装为一个对象，从而让你可以用不同的请求对客户进行参数化，对请求排队或者记录请求日志，以及支持撤销的功能。
+                //Command command, command1;
+                //command = new ExitCommand();
+                //command1 = new HelpCommand();
+                //FunctionButton button = new FunctionButton();
+                //button.Command = command;
+                ////button.Click();
+                //CommandQueue queue = new CommandQueue();//命令队列，CommandQueue的Excute方法虽然可以使用但是客户端使用不够好的，必须要让请求对象FunctionButton来发送请求。
+                //queue.AddCommand(command);
+                //queue.AddCommand(command1);
+                ////queue.Excute();
+                //button.Clicks(queue);
+            }
+            {
+                //解释器模式：给定一个语言，定义他的文法的一种表示，并定义一个解释器，这个解释器表示来解释语言中的句子。
+                string str = "down run 10 and left move 20";
+                InstruetionHandler handler = new InstruetionHandler();
+                 handler.Handle(str);
+                var result = handler.Output();
+                Console.WriteLine(result);
             }
             Console.ReadKey();
          }
