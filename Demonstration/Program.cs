@@ -12,6 +12,7 @@ using DecoratorPattern;
 using FacadePattern;
 using FactoryPattern;
 using FlyweightPattern;
+using InterpreterPattern;
 using IteratorPattern;
 using MediatorPattern;
 using MementoPattern;
