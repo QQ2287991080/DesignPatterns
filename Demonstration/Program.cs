@@ -21,11 +21,16 @@ using PrototypePattern;
 using ProxyPattern;
 using SimpleFactoryPattern;
 using SingletonPattern;
+using StatePattern.普通实现;
+using StrategyPattern;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TemplateMethodPattern;
+using VistorPattern;
 
 namespace Demonstration
 {
@@ -311,10 +316,6 @@ namespace Demonstration
                 //button.Charged();
                 //textBox.Charged();
                 //listView.Charged();
-                 
-
-
-
 
             }
             {
@@ -325,28 +326,28 @@ namespace Demonstration
             }
             {
                 //观察者模式：定义对象之间的一种一对多的依赖关系，使得每一个对象的状态发生改变时，其相关依赖对象得到通知并且自动更新。
-                AllyControllerCenter center = new ConcreteAllyControllerCenter("王者荣耀群");
+                //AllyControllerCenter center = new ConcreteAllyControllerCenter("王者荣耀群");
 
-                IObserver observer, observer1, observer2, observer3, observer4;
+                //IObserver observer, observer1, observer2, observer3, observer4;
 
-                observer = new Player("鲁班七号");
-                center.AddPlayer(observer);
+                //observer = new Player("鲁班七号");
+                //center.AddPlayer(observer);
 
-                observer1 = new Player("蔡文姬");
-                center.AddPlayer(observer1);
+                //observer1 = new Player("蔡文姬");
+                //center.AddPlayer(observer1);
 
-                observer2 = new Player("甄姬");
-                center.AddPlayer(observer2);
+                //observer2 = new Player("甄姬");
+                //center.AddPlayer(observer2);
 
-                observer3 = new Player("李白");
-                center.AddPlayer(observer3);
+                //observer3 = new Player("李白");
+                //center.AddPlayer(observer3);
 
-                observer4 = new Player("凯");
-                center.AddPlayer(observer4);
+                //observer4 = new Player("凯");
+                //center.AddPlayer(observer4);
 
 
-                //鲁班被毒打
-                observer.BeAttacked(center);
+                ////鲁班被毒打
+                //observer.BeAttacked(center);
             }
             {
                 //命令模式：将一个请求封装为一个对象，从而让你可以用不同的请求对客户进行参数化，对请求排队或者记录请求日志，以及支持撤销的功能。
@@ -364,11 +365,66 @@ namespace Demonstration
             }
             {
                 //解释器模式：给定一个语言，定义他的文法的一种表示，并定义一个解释器，这个解释器表示来解释语言中的句子。
-                string str = "down run 10 and left move 20";
-                InstruetionHandler handler = new InstruetionHandler();
-                 handler.Handle(str);
-                var result = handler.Output();
-                Console.WriteLine(result);
+                //string str = "down run 10 and left move 20";
+                //InstruetionHandler handler = new InstruetionHandler();
+                // handler.Handle(str);
+                //var result = handler.Output();
+                //Console.WriteLine(result);
+            }
+            {
+                //状态模式:允许一个对象在其内部状态发生改变的时改变它的行为。对象看起来似乎没有修改它的类
+                {
+                    //普通情况
+                    //Acount acount = new Acount("Zero", 0);
+                    //acount.Deposit(1000);
+                    //acount.Withdraw(5000);
+                    //acount.ComputeInterest();
+                }
+                {
+                    //共享状态
+                    //StatePattern.共享状态.Switch s = new StatePattern.共享状态.Switch("开关1");
+                    //StatePattern.共享状态.Switch s2 = new StatePattern.共享状态.Switch("开关2");
+                    //s.Off();
+                }
+            }
+            {
+                //策略模式：定义一系列算法，将每一个算法封装起来，并让它们可以相互替换。策略模式让算法可以独立于使用它们的客户端
+                //Strategy strategy = new Strategy();
+                //strategy.SetDiscount(new Student());
+                //Console.WriteLine("原价{0}",100);
+                //strategy.Price = 100;
+                //Console.WriteLine("折后{0}",strategy.Price);
+                //Console.WriteLine("============================");
+                //strategy.SetDiscount(new Children());
+                //strategy.Price = 100;
+                //Console.WriteLine("折后{0}", strategy.Price);
+
+            }
+            {
+                //模板方法模式:定义一个操作中算法的框架，而将一些步骤延迟到子类中，模板方法模式使得子类不改变一个算法的结构就可以重定义算法的某些特定的方法     
+                {
+                    //CurrnetAccount account = new CurrnetAccount();
+                    //account.TemplateMethod("111");
+                    //account.TemplateMethod("Zero");
+                }
+            }
+            {
+                //访问者模式：表示一个作用于某个对象接口中的各个元素的操作。访问者模式让你可以在不改变任何元素的类的前提下定义作用于这些元素的新操作
+                EmployeeList list = new EmployeeList();
+
+                Employee e1, e2, e3;
+                e1 = new FullTimeEmployee("Zero",3000,50);
+                e2 = new FullTimeEmployee("One",5000,40);
+                e3 = new PartTimeEmployee("Two",2500,35);
+
+                list.Add(e1);
+                list.Add(e2);
+                list.Add(e3);
+
+                
+                list.Accept(new HR());
+                Console.WriteLine("=========================");
+                list.Accept(new FA());
             }
             Console.ReadKey();
          }

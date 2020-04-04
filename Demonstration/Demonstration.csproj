@@ -74,6 +74,10 @@
       <Project>{be45135b-f377-4965-bc6a-23a8d492ff36}</Project>
       <Name>CommandPattern</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CompositePattern\CompositePattern.csproj">
+      <Project>{5c2c01db-dde2-43d1-b017-7c0a62945663}</Project>
+      <Name>CompositePattern</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DecoratorPattern\DecoratorPattern.csproj">
       <Project>{caed4554-c6ff-4580-b682-124dcf5b13fe}</Project>
       <Name>DecoratorPattern</Name>
@@ -125,6 +129,22 @@
     <ProjectReference Include="..\SingletonPattern\SingletonPattern.csproj">
       <Project>{6f05d54a-bf8f-489c-85c2-4f357b52f1d8}</Project>
       <Name>SingletonPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StatePattern\StatePattern.csproj">
+      <Project>{07785E98-22C6-49F4-89C8-9B4D67F14C0F}</Project>
+      <Name>StatePattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StrategyPattern\StrategyPattern.csproj">
+      <Project>{c4d59ea0-cd05-4d78-bf49-d280dd27851e}</Project>
+      <Name>StrategyPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TemplateMethodPattern\TemplateMethodPattern.csproj">
+      <Project>{c79ec1d4-f7d8-469f-9185-5cd4ac885808}</Project>
+      <Name>TemplateMethodPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VistorPattern\VistorPattern.csproj">
+      <Project>{e039f22d-2833-4206-8793-30209322cd67}</Project>
+      <Name>VistorPattern</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
