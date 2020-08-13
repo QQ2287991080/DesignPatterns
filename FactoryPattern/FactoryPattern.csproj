@@ -41,6 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dome\ILoggerFactory.cs" />
+    <Compile Include="Dome\LoggerFactory.cs" />
+    <Compile Include="Dome\Insert.cs" />
+    <Compile Include="Dome\InsertFactory.cs" />
+    <Compile Include="Dome\Select.cs" />
+    <Compile Include="Dome\ILogger.cs" />
+    <Compile Include="Dome\SelectFactory.cs" />
+    <Compile Include="Dome\Update.cs" />
+    <Compile Include="Dome\UpdateFactory.cs" />
     <Compile Include="IFactory.cs" />
     <Compile Include="IFruits.cs" />
     <Compile Include="Apple.cs" />

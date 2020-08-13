@@ -11,6 +11,7 @@ using CommandPattern.ConcreteCommand;
 using DecoratorPattern;
 using FacadePattern;
 using FactoryPattern;
+using FactoryPattern.Dome;
 using FlyweightPattern;
 using InterpreterPattern;
 using IteratorPattern;
@@ -49,6 +50,9 @@ namespace Demonstration
                 //IFactory factory = new AppleFactory();
                 //IFruits fruits = factory.WhatProduct("");
                 //fruits.CreateFruits();
+                LoggerFactory factory = new SelectFactory();
+                factory.WriteLog();//记录查询
+                
                 //优点：相比于简单工厂模式，工厂模式的拓展性更加的好。
                 //工厂方法用来创建客户端所需要的东西，但是隐藏了具体实例化的细节。
                 //缺点：每次新增加一个产品需要些一个具体的产品，和产品的工厂类。。。。
@@ -264,17 +268,17 @@ namespace Demonstration
             }
             {
                 //职责链模式：避免将一个请求的发送者与接受者耦合在一起，让多个对象都有机会处理请求。将接受的对象连接成一条链，并且沿着这条链传递请求，知道一个对象能够处理它为止。
-                //Approver approver, approver1, approver2;
-                //approver = new Director("张主任");
-                //approver1 = new VicePresident("张副总");
-                //approver2 = new President("张总");
+                Approver approver, approver1, approver2;
+                approver = new Director("张主任");
+                approver1 = new VicePresident("张副总");
+                approver2 = new President("张总");
 
-                ////创建职责链
-                //approver.SetSuccesser(approver1);//下级传递给上一级
-                //approver1.SetSuccesser(approver2);
+                //创建职责链
+                approver.SetSuccesser(approver1);//下级传递给上一级
+                approver1.SetSuccesser(approver2);
 
-                //PurchaseRequest request = new PurchaseRequest(5_5_0_0_0,10001,"买电脑");
-                //approver.ProcessRequest(request);
+                PurchaseRequest request = new PurchaseRequest(5_5_0_0_0, 10001, "买电脑");
+                approver.ProcessRequest(request);
             }
             {
                 //迭代器模式：提供一种方法访问一个聚合元素中的各个元素，并且不暴露对象的内部表示
@@ -410,21 +414,21 @@ namespace Demonstration
             }
             {
                 //访问者模式：表示一个作用于某个对象接口中的各个元素的操作。访问者模式让你可以在不改变任何元素的类的前提下定义作用于这些元素的新操作
-                EmployeeList list = new EmployeeList();
+                //EmployeeList list = new EmployeeList();
 
-                Employee e1, e2, e3;
-                e1 = new FullTimeEmployee("Zero",3000,50);
-                e2 = new FullTimeEmployee("One",5000,40);
-                e3 = new PartTimeEmployee("Two",2500,35);
+                //Employee e1, e2, e3;
+                //e1 = new FullTimeEmployee("Zero",3000,50);
+                //e2 = new FullTimeEmployee("One",5000,40);
+                //e3 = new PartTimeEmployee("Two",2500,35);
 
-                list.Add(e1);
-                list.Add(e2);
-                list.Add(e3);
+                //list.Add(e1);
+                //list.Add(e2);
+                //list.Add(e3);
 
                 
-                list.Accept(new HR());
-                Console.WriteLine("=========================");
-                list.Accept(new FA());
+                //list.Accept(new HR());
+                //Console.WriteLine("=========================");
+                //list.Accept(new FA());
             }
             Console.ReadKey();
          }
