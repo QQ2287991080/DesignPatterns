@@ -73,11 +73,11 @@ namespace Demonstration
 
                 {
                     //一般情况
-                    //ActorController controller = new ActorController();//实例化指挥者
-                    //ActorBuilder builder = new AngleBuilder();//创建天使
-                    //Actor actor = controller.Construct(builder);//返回角色具体的信息
-                    //Console.WriteLine(actor.Type);
-                    //Console.WriteLine(actor.Name);
+                    ActorController controller = new ActorController();//实例化指挥者
+                    ActorBuilder builder = new AngleBuilder();//创建天使
+                    Actor actor = controller.Construct(builder);//返回角色具体的信息
+                    Console.WriteLine(actor.Type);
+                    Console.WriteLine(actor.Name);
 
                 }
                 {
@@ -178,7 +178,7 @@ namespace Demonstration
             }
             {
                 //桥接模式：将抽象部分与它的实现部分解耦，使得两者能够独立变化
-                //RefinedAbstraction refined = new RefinedAbstraction();
+                RefinedAbstraction refined = new RefinedAbstraction();
                 //ConcreteImplementor concrete = new ConcreteImplementor();
                 //refined.SetImp1(concrete);
                 //refined.OperationImp();
@@ -330,7 +330,7 @@ namespace Demonstration
             }
             {
                 //观察者模式：定义对象之间的一种一对多的依赖关系，使得每一个对象的状态发生改变时，其相关依赖对象得到通知并且自动更新。
-                //AllyControllerCenter center = new ConcreteAllyControllerCenter("王者荣耀群");
+               //AllyControllerCenter center = new ConcreteAllyControllerCenter("王者荣耀群");
 
                 //IObserver observer, observer1, observer2, observer3, observer4;
 
