@@ -4,6 +4,7 @@ using AdapterPattern;
 using AdapterPattern.DefaultAdapterPattern;
 using BridgePattern;
 using BuilderPattern;
+using BuilderPattern.v2;
 using ChainOfResponsibilityPattern;
 using ChainOfResponsibilityPattern.Concrete;
 using CommandPattern;
@@ -39,6 +40,30 @@ namespace Demonstration
     {
         static void Main(string[] args)
         {
+
+            {
+
+
+
+                string str = "abcdefg 某某某 123";
+                var arr = str.ToArray();
+                Console.WriteLine(arr.Count());
+
+                int legth = System.Text.Encoding.Default.GetBytes(str).Length;
+                Console.WriteLine(legth);
+
+
+                CarController controller = new CarController();
+
+                //造一辆奥迪车
+                Car car = controller.Construct(new AudiCarBuilder());
+
+                Console.WriteLine(car.Body);
+                Console.WriteLine(car.Chassis);
+                Console.WriteLine(car.Electrical);
+                Console.WriteLine(car.Engine);
+
+            }
             {
                 //简单工厂模式：定义一个工厂类，它可以根据参数的不同返回不同类的实例，被创建的实例通常都具有共同的父类。
                 //Product product = Factory.GetProduct("电脑");
@@ -50,8 +75,8 @@ namespace Demonstration
                 //IFactory factory = new AppleFactory();
                 //IFruits fruits = factory.WhatProduct("");
                 //fruits.CreateFruits();
-                LoggerFactory factory = new SelectFactory();
-                factory.WriteLog();//记录查询
+               // LoggerFactory factory = new SelectFactory();
+               // factory.WriteLog();//记录查询
                 
                 //优点：相比于简单工厂模式，工厂模式的拓展性更加的好。
                 //工厂方法用来创建客户端所需要的东西，但是隐藏了具体实例化的细节。
@@ -73,11 +98,11 @@ namespace Demonstration
 
                 {
                     //一般情况
-                    ActorController controller = new ActorController();//实例化指挥者
-                    ActorBuilder builder = new AngleBuilder();//创建天使
-                    Actor actor = controller.Construct(builder);//返回角色具体的信息
-                    Console.WriteLine(actor.Type);
-                    Console.WriteLine(actor.Name);
+                   // ActorController controller = new ActorController();//实例化指挥者
+                   // ActorBuilder builder = new AngleBuilder();//创建天使
+                   // Actor actor = controller.Construct(builder);//返回角色具体的信息
+                   // Console.WriteLine(actor.Type);
+                   // Console.WriteLine(actor.Name);
 
                 }
                 {
@@ -268,17 +293,17 @@ namespace Demonstration
             }
             {
                 //职责链模式：避免将一个请求的发送者与接受者耦合在一起，让多个对象都有机会处理请求。将接受的对象连接成一条链，并且沿着这条链传递请求，知道一个对象能够处理它为止。
-                Approver approver, approver1, approver2;
-                approver = new Director("张主任");
-                approver1 = new VicePresident("张副总");
-                approver2 = new President("张总");
-
-                //创建职责链
-                approver.SetSuccesser(approver1);//下级传递给上一级
-                approver1.SetSuccesser(approver2);
-
-                PurchaseRequest request = new PurchaseRequest(5_5_0_0_0, 10001, "买电脑");
-                approver.ProcessRequest(request);
+               // Approver approver, approver1, approver2;
+               // approver = new Director("张主任");
+               // approver1 = new VicePresident("张副总");
+               // approver2 = new President("张总");
+               //
+               // //创建职责链
+               // approver.SetSuccesser(approver1);//下级传递给上一级
+               // approver1.SetSuccesser(approver2);
+               //
+               // PurchaseRequest request = new PurchaseRequest(5_5_0_0_0, 10001, "买电脑");
+               // approver.ProcessRequest(request);
             }
             {
                 //迭代器模式：提供一种方法访问一个聚合元素中的各个元素，并且不暴露对象的内部表示

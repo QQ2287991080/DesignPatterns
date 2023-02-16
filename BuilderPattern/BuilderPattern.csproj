@@ -47,6 +47,13 @@
     <Compile Include="AngleBuilder.cs" />
     <Compile Include="DevilBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="v2\AudiCarBuilder.cs" />
+    <Compile Include="v2\BenzCarBuilder.cs" />
+    <Compile Include="v2\BMWCarBuilder.cs" />
+    <Compile Include="v2\Car.cs" />
+    <Compile Include="v2\CarBuilder.cs" />
+    <Compile Include="v2\CarController.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
